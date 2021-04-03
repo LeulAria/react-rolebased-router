@@ -17,4 +17,5 @@ export interface RouterConfig {
   private?: boolean;
   permissions?: string[];
   fallbackRedirect?: string;
+  [x:string]: any;
 }
