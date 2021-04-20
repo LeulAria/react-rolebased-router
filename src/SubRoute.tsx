@@ -16,27 +16,22 @@ const SubRoute: React.FC<IProps> = ({
 }) => {
   // checks if user is permitted from permission arr to usersRole arr
   const isPermitted = (permissions: string[]) =>
-    permissions.some((permission) => userAuthRoles.indexOf(permission)!==-1);
+    permissions.some((permission) => userAuthRoles.indexOf(permission) !== -1);
 
   return (
     <Suspense fallback={route.fallback}>
       <Route
         path={route.path}
         render={(props) => {
-          // check if redirect first
+          //check if role redirect
           if (route.redirect) {
+            // check if redirect first
             // loop through redirectes to check the permittability
             for (let redirect of route.redirect) {
               // check if redirect is for protected
               if (redirect.protected) {
                 // if user authenticated
                 if (isUserAuthenticated) {
-                  return <Redirect to={redirect.page} />;
-                } // if user not auth then redirect to specified fallback redirect
-                else if (redirect.fallbackRedirect) {
-                  return <Redirect to={redirect.fallbackRedirect} />;
-                } // else redirect to login redirect
-                else {
                   return <Redirect to={redirect.page} />;
                 }
               }
@@ -45,21 +40,14 @@ const SubRoute: React.FC<IProps> = ({
                 // check if user is permitted
                 if (isPermitted(redirect.permissions)) {
                   return <Redirect to={redirect.page} />;
-                } // if user not permitted then redirect to specified fallback redirect
-                else if (redirect.fallbackRedirect) {
-                  return <Redirect to={redirect.fallbackRedirect} />;
-                } // else redirect to login redirect
-                else {
-                  return <Redirect to={loginRedirectPath} />;
-                }
-              }
-              // neter protected nor permitted then just redirect
-              else {
-                if (redirect.page) {
-                  return <Redirect to={redirect.page} />;
                 }
               }
             }
+            return (
+              <Redirect
+                to={route.redirectFallback || loginRedirectPath}
+              />
+            );
           }
           if (route.protected) {
             if (isUserAuthenticated) {

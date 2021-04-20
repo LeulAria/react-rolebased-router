@@ -4,7 +4,6 @@ export interface RouterRedirect {
   page: string;
   permissions?: string[];
   protected?: boolean;
-  fallbackRedirect?: string;
 }
 
 export interface RouterConfig {
@@ -16,6 +15,6 @@ export interface RouterConfig {
   redirect?: RouterRedirect[];
   private?: boolean;
   permissions?: string[];
-  fallbackRedirect?: string;
-  [x:string]: any;
+  redirectFallback?: string;
+  [x: string]: any;
 }
