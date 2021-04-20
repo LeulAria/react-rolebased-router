@@ -3,7 +3,6 @@ export interface RouterRedirect {
     page: string;
     permissions?: string[];
     protected?: boolean;
-    fallbackRedirect?: string;
 }
 export interface RouterConfig {
     path: string;
@@ -14,7 +13,7 @@ export interface RouterConfig {
     redirect?: RouterRedirect[];
     private?: boolean;
     permissions?: string[];
-    fallbackRedirect?: string;
+    redirectFallback?: string;
     [x: string]: any;
 }
 //# sourceMappingURL=index.d.ts.map
