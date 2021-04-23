@@ -5,9 +5,9 @@ import SubRoute from "./SubRoute";
 
 interface IProps {
   routes: RouterConfig[];
-  userAuthRoles: string[];
-  loginRedirectPath: string;
-  isUserAuthenticated: boolean;
+  userAuthRoles?: string[];
+  loginRedirectPath?: string;
+  isUserAuthenticated?: boolean;
   blocked?: IBlocked;
 }
 
