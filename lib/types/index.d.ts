@@ -8,7 +8,7 @@ export interface RouterConfig {
     path: string;
     exact: boolean;
     fallback: NonNullable<ReactNode> | null;
-    component?: LazyExoticComponent<ComponentType<any>>;
+    component?: LazyExoticComponent<ComponentType<any>> | any;
     routes?: RouterConfig[];
     redirect?: RouterRedirect[];
     private?: boolean;
