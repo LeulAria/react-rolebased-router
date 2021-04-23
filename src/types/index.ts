@@ -18,3 +18,8 @@ export interface RouterConfig {
   redirectFallback?: string;
   [x: string]: any;
 }
+
+export interface IBlocked {
+  isBlocked: boolean;
+  path: string;
+}
