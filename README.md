@@ -8,7 +8,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/bundlephobia/minzip/react-rolebased-router?style=flat-square" alt="package size" />
-  <img src="https://img.shields.io/npm/v/react-rolebased-router?style=flat-square" alt="npm version" />
+  <img src="https://img.shields.io/npm/dw/react-rolebased-router?style=flat-square" alt="npm version" />
   <img src="https://img.shields.io/jsdelivr/npm/hm/react-rolebased-router?style=flat-square" alt="downloads per month" />
 </p>
 
