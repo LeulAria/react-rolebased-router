@@ -1,6 +1,6 @@
 {
   "name": "react-rolebased-router",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "private": false,
   "main": "lib/index.js",
   "scripts": {
