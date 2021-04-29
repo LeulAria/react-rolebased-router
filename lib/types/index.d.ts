@@ -20,4 +20,8 @@ export interface IBlocked {
     isBlocked: boolean;
     path: string;
 }
+export interface IBlockedComponent {
+    isBlocked: boolean;
+    component: LazyExoticComponent<ComponentType<any>> | ComponentType | any;
+}
 //# sourceMappingURL=index.d.ts.map
