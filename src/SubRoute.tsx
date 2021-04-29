@@ -32,7 +32,7 @@ const SubRoute: React.FC<IProps> = ({
           if (blockedComponent) {
             if (blockedComponent.isBlocked) {
               if (blockedComponent.component) {
-                return <blockedComponent.component {...props} />;
+                return <blockedComponent.component {...props} routes={route.routes}  />;
               }
             }
           }
