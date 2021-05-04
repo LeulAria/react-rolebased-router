@@ -4,6 +4,7 @@ export interface RouterRedirect {
   page: string;
   permissions?: string[];
   protected?: boolean;
+  redirectFallback?: string;
 }
 
 export interface RouterConfig {
@@ -22,9 +23,4 @@ export interface RouterConfig {
 export interface IBlocked {
   isBlocked: boolean;
   path: string;
-}
-
-export interface IBlockedComponent {
-  isBlocked: boolean;
-  component: LazyExoticComponent<ComponentType<any>> | ComponentType | any;
 }

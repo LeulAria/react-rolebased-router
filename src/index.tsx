@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch } from "react-router-dom";
-import { RouterConfig, IBlocked, IBlockedComponent } from "./types";
+import { RouterConfig, IBlocked } from "./types";
 import SubRoute from "./SubRoute";
 
 interface IProps {
@@ -9,7 +9,6 @@ interface IProps {
   loginRedirectPath: string;
   isUserAuthenticated: boolean;
   blocked?: IBlocked;
-  blockedComponent?: IBlockedComponent;
 }
 
 const Router: React.FC<IProps> = ({
@@ -18,7 +17,6 @@ const Router: React.FC<IProps> = ({
   loginRedirectPath,
   isUserAuthenticated,
   blocked,
-  blockedComponent
 }) => {
   return (
     <Switch>
@@ -30,7 +28,6 @@ const Router: React.FC<IProps> = ({
             loginRedirectPath={loginRedirectPath}
             isUserAuthenticated={isUserAuthenticated}
             blocked={blocked}
-            blockedComponent={blockedComponent}
             {...route}
           />
         ))}
