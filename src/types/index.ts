@@ -22,5 +22,5 @@ export interface RouterConfig {
 
 export interface IBlocked {
   isBlocked: boolean;
-  path: string;
+  component: LazyExoticComponent<ComponentType<any>> | ComponentType | any;
 }

@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Redirect, Route } from "react-router-dom";
+import { Redirect, Route, useHistory } from "react-router-dom";
 import { IBlocked } from "./types";
 
 interface IProps {
@@ -29,11 +29,12 @@ const SubRoute: React.FC<IProps> = ({
           // block routing to specific route path
           if (blocked) {
             if (blocked.isBlocked) {
-              if (blocked.path) {
-                return <Redirect to={blocked.path} />;
+              if (blocked.component) {
+                return blocked.component;
               }
             }
           }
+
           //check if role redirect
           if (route.redirect) {
             // check if redirect first
@@ -55,9 +56,7 @@ const SubRoute: React.FC<IProps> = ({
               }
             }
             return (
-              <Redirect
-                to={route.redirectFallback || loginRedirectPath}
-              />
+              <Redirect to={route.redirectFallback || loginRedirectPath} />
             );
           }
           if (route.protected) {

@@ -5,9 +5,9 @@ import SubRoute from "./SubRoute";
 
 interface IProps {
   routes: RouterConfig[];
-  userAuthRoles: string[];
-  loginRedirectPath: string;
-  isUserAuthenticated: boolean;
+  userAuthRoles?: string[];
+  loginRedirectPath?: string;
+  isUserAuthenticated?: boolean;
   blocked?: IBlocked;
 }
 
@@ -16,7 +16,7 @@ const Router: React.FC<IProps> = ({
   userAuthRoles,
   loginRedirectPath,
   isUserAuthenticated,
-  blocked,
+  blocked
 }) => {
   return (
     <Switch>
