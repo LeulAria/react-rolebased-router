@@ -1,6 +1,6 @@
-import React, { Suspense } from "react";
-import { Redirect, Route, useHistory } from "react-router-dom";
-import { IBlocked } from "./types";
+import React, {Suspense} from "react";
+import {Redirect, Route, useHistory} from "react-router-dom";
+import {IBlocked} from "./types";
 
 interface IProps {
   userAuthRoles: string[];
@@ -55,9 +55,7 @@ const SubRoute: React.FC<IProps> = ({
                 }
               }
             }
-            return (
-              <Redirect to={route.redirectFallback || loginRedirectPath} />
-            );
+            return <Redirect to={route.redirectFallback || loginRedirectPath} />;
           }
           if (route.protected) {
             if (isUserAuthenticated) {

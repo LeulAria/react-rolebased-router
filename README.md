@@ -82,6 +82,6 @@ See Demo:
 
 [![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/bold-beaver-4lrq6)
 
-🤔 Wana make it awesome, contribute, create an issue and more  are welcome.
+🤔 Wana make it awesome, contribute, create an issue and more are welcome.
 
 2021.
