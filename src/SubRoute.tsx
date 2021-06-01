@@ -36,7 +36,7 @@ const SubRoute: React.FC<IProps> = ({
           }
 
           //check if role redirect
-          if (route.redirect) {
+          else if (route.redirect) {
             // check if redirect first
             // loop through redirectes to check the permittability
             for (let redirect of route.redirect) {
@@ -57,7 +57,7 @@ const SubRoute: React.FC<IProps> = ({
             }
             return <Redirect to={route.redirectFallback || loginRedirectPath} />;
           }
-          if (route.protected) {
+          else if (route.protected) {
             if (isUserAuthenticated) {
               if (route.component) {
                 return <route.component {...props} routes={route.routes} />;
@@ -68,7 +68,7 @@ const SubRoute: React.FC<IProps> = ({
               return <Redirect to={loginRedirectPath} />;
             }
           }
-          if (route.permissions) {
+          else if (route.permissions) {
             if (isPermitted(route.permissions)) {
               if (route.component) {
                 return <route.component {...props} routes={route.routes} />;
