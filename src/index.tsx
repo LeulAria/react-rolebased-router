@@ -12,7 +12,7 @@ interface IProps {
   loginRedirectPath?: string;
   isUserAuthenticated?: boolean;
   blocked?: IBlocked;
-  switchProps?: SwitchProps
+  switchProps?: SwitchProps | any;
 }
 
 const Router: React.FC<IProps> = ({

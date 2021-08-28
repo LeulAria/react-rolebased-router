@@ -7,7 +7,7 @@ interface IProps {
   loginRedirectPath: string;
   isUserAuthenticated: boolean;
   blocked?: IBlocked;
-  routeProps?: RouteProps,
+  routeProps?: RouteProps | any,
   [route: string]: any;
 }
 

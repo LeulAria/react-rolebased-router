@@ -9,7 +9,7 @@ interface IProps {
     loginRedirectPath?: string;
     isUserAuthenticated?: boolean;
     blocked?: IBlocked;
-    switchProps?: SwitchProps;
+    switchProps?: SwitchProps | any;
 }
 declare const Router: React.FC<IProps>;
 export default Router;
