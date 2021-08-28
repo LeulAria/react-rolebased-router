@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Redirect, Route, useHistory } from "react-router-dom";
+import { Redirect, Route, RouteProps, useHistory } from "react-router-dom";
 import { IBlocked } from "./types";
 
 interface IProps {
@@ -7,6 +7,7 @@ interface IProps {
   loginRedirectPath: string;
   isUserAuthenticated: boolean;
   blocked?: IBlocked;
+  routeProps: RouteProps,
   [route: string]: any;
 }
 
@@ -15,6 +16,7 @@ const SubRoute: React.FC<IProps> = ({
   loginRedirectPath,
   isUserAuthenticated,
   blocked,
+  routeProps,
   ...route
 }) => {
   // checks if user is permitted from permission arr to usersRole arr
@@ -24,6 +26,7 @@ const SubRoute: React.FC<IProps> = ({
   return (
     <Suspense fallback={route.fallback}>
       <Route
+        {...routeProps}
         path={route.path}
         render={(props) => {
           // block routing to specific route path
