@@ -1,13 +1,13 @@
-import React, { Suspense } from "react";
-import { Redirect, Route, RouteProps, useHistory } from "react-router-dom";
-import { IBlocked } from "./types";
+import React, {Suspense} from "react";
+import {Redirect, Route, RouteProps, useHistory} from "react-router-dom";
+import {IBlocked} from "./types";
 
 interface IProps {
   userAuthRoles: string[];
   loginRedirectPath: string;
   isUserAuthenticated: boolean;
   blocked?: IBlocked;
-  routeProps?: RouteProps | any,
+  routeProps?: RouteProps | any;
   [route: string]: any;
 }
 
@@ -58,30 +58,32 @@ const SubRoute: React.FC<IProps> = ({
               }
             }
             return <Redirect to={route.redirectFallback || loginRedirectPath} />;
-          }
-          else if (route.protected) {
+          } else if (route.protected) {
             if (isUserAuthenticated) {
               if (route.component) {
-                return <route.component
-                        {...props}
-                        routeParam={routeParam}
-                        routes={route.routes}
-                      />;
+                return (
+                  <route.component
+                    {...props}
+                    routeParam={routeParam}
+                    routes={route.routes}
+                  />
+                );
               }
             } else if (route.fallbackRouter) {
               return <Redirect to={route.fallbackRouter} />;
             } else {
               return <Redirect to={loginRedirectPath} />;
             }
-          }
-          else if (route.permissions) {
+          } else if (route.permissions) {
             if (isPermitted(route.permissions)) {
               if (route.component) {
-                return <route.component
-                        {...props}
-                        routeParam={routeParam}
-                        routes={route.routes}
-                      />;
+                return (
+                  <route.component
+                    {...props}
+                    routeParam={routeParam}
+                    routes={route.routes}
+                  />
+                );
               }
             } else if (route.fallbackRouter) {
               return <Redirect to={route.fallbackRouter} />;
@@ -90,11 +92,13 @@ const SubRoute: React.FC<IProps> = ({
             }
           } else {
             if (route.component) {
-              return <route.component
-                      {...props}
-                      routeParam={routeParam}
-                      routes={route.routes}
-                    />;
+              return (
+                <route.component
+                  {...props}
+                  routeParam={routeParam}
+                  routes={route.routes}
+                />
+              );
             }
           }
         }}

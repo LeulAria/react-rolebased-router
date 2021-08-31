@@ -59,6 +59,24 @@ const routes: RouterConfig[] = [
     component: lazy(() => import("./pages/NotFound")),
     exact: false,
     fallback: <div>Loading...</div>,
+    routeParam: {
+      title: "Page Not Found",
+      component: <h1>Test Parameter</h1>
+    }
+  },
+  {
+    path: "/*",
+    component: lazy(() => import("./pages/NotFound")),
+    exact: false,
+    fallback: <div>Loading...</div>,
+    routes: [
+      {
+        path: "/*",
+        component: lazy(() => import("./pages/NotFound")),
+        exact: false,
+        fallback: <div>Loading...</div>,
+      },
+    ]
   },
 ]
 
