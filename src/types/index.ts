@@ -7,6 +7,10 @@ export interface RouterRedirect {
   redirectFallback?: string;
 }
 
+export interface RouteParam {
+  [x: string]: JSX.Element | React.ReactNode | string | any;
+}
+
 export interface RouterConfig {
   path: string;
   exact: boolean;
@@ -17,6 +21,7 @@ export interface RouterConfig {
   private?: boolean;
   permissions?: string[];
   redirectFallback?: string;
+  routeParam?: RouteParam;
   [x: string]: any;
 }
 

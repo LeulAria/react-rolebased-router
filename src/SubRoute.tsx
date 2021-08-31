@@ -17,6 +17,7 @@ const SubRoute: React.FC<IProps> = ({
   isUserAuthenticated,
   blocked,
   routeProps,
+  routeParam,
   ...route
 }) => {
   // checks if user is permitted from permission arr to usersRole arr
@@ -61,7 +62,11 @@ const SubRoute: React.FC<IProps> = ({
           else if (route.protected) {
             if (isUserAuthenticated) {
               if (route.component) {
-                return <route.component {...props} routes={route.routes} />;
+                return <route.component
+                        {...props}
+                        routeParam={routeParam}
+                        routes={route.routes}
+                      />;
               }
             } else if (route.fallbackRouter) {
               return <Redirect to={route.fallbackRouter} />;
@@ -72,7 +77,11 @@ const SubRoute: React.FC<IProps> = ({
           else if (route.permissions) {
             if (isPermitted(route.permissions)) {
               if (route.component) {
-                return <route.component {...props} routes={route.routes} />;
+                return <route.component
+                        {...props}
+                        routeParam={routeParam}
+                        routes={route.routes}
+                      />;
               }
             } else if (route.fallbackRouter) {
               return <Redirect to={route.fallbackRouter} />;
@@ -81,7 +90,11 @@ const SubRoute: React.FC<IProps> = ({
             }
           } else {
             if (route.component) {
-              return <route.component {...props} routes={route.routes} />;
+              return <route.component
+                      {...props}
+                      routeParam={routeParam}
+                      routes={route.routes}
+                    />;
             }
           }
         }}
